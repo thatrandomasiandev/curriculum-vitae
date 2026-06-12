@@ -1,0 +1,270 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=1in, top=0.85in, bottom=0.9in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{CVPrimary}{HTML}{990000}
+\definecolor{CVSecondary}{HTML}{FFCC00}
+\definecolor{CVAccent}{HTML}{2C2C2C}
+\definecolor{CVMuted}{HTML}{666666}
+\definecolor{CVRule}{HTML}{D4D4D4}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=CVPrimary,
+  urlcolor=CVPrimary,
+}
+
+\setcounter{tocdepth}{1}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+
+\renewcommand{\contentsname}{}
+\renewcommand{\cftsecfont}{\color{CVAccent}}
+\renewcommand{\cftsecpagefont}{\normalfont\color{CVMuted}}
+\renewcommand{\cftsecleader}{\color{CVRule}\cftdotfill{\cftdotsep}}
+\setlength{\cftbeforesecskip}{0.35em}
+
+\fancypagestyle{cvstyle}{%
+  \fancyhf{}%
+  \fancyfoot[L]{\small\color{CVPrimary} Joshua Terranova}%
+  \fancyfoot[R]{\small\color{CVMuted}\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+\makeatletter
+\renewcommand{\tableofcontents}{%
+  \begingroup
+  \setlength{\parskip}{0.25em}%
+  \@starttoc{toc}%
+  \endgroup
+}
+\makeatother
+
+\newcommand{\cvheadrule}{%
+  \noindent\textcolor{CVPrimary}{\rule{\textwidth}{0.55pt}}\\[-0.7em]%
+  \noindent\textcolor{CVSecondary}{\rule{0.14\textwidth}{1.4pt}}%
+  \par\vspace{0.35em}%
+}
+
+\newcommand{\cvrule}{%
+  \noindent\textcolor{CVPrimary}{\rule{0.18\textwidth}{0.55pt}}%
+  \textcolor{CVRule}{\rule{0.82\textwidth}{0.4pt}}%
+  \par\vspace{0.35em}%
+}
+
+\newcommand{\cvsection}[1]{%
+  \vspace{0.85em}%
+  \phantomsection%
+  \addcontentsline{toc}{section}{\texorpdfstring{\textbf{\MakeUppercase{#1}}}{#1}}%
+  \noindent{\large\bfseries\color{CVPrimary}\MakeUppercase{#1}}\par\vspace{0.18em}%
+  \cvrule
+}
+
+\newcommand{\cvedu}[2]{%
+  \noindent\textbf{#1}\par
+  \noindent\textit{#2}\par\vspace{0.32em}%
+}
+
+\newcommand{\cvbullet}[1]{%
+  \noindent\hspace{0.55em}{\color{CVPrimary}\textendash}\ #1\par\vspace{0.1em}%
+}
+
+\newcommand{\cventry}[3]{%
+  \noindent
+  \begin{tabular*}{\textwidth}{@{}p{0.78\textwidth}@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} & \textit{\color{CVMuted}#3} \\
+  \end{tabular*}%
+  \par\noindent\textit{\color{CVMuted}#2}\par\vspace{0.1em}%
+}
+
+\newcommand{\cvitem}[1]{%
+  \hangindent=1.35em\hangafter=1
+  \noindent\hspace{0.55em}{\color{CVPrimary}\textendash}\ #1\par\vspace{0.05em}%
+}
+
+\newcommand{\cventryend}{\vspace{0.14em}}
+
+\newcommand{\cvproject}[2]{%
+  \noindent
+  \begin{tabular*}{\textwidth}{@{}p{0.78\textwidth}@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} & \textit{\color{CVMuted}#2} \\
+  \end{tabular*}%
+  \par\vspace{0.08em}%
+}
+
+\newcommand{\cvsubhead}[1]{%
+  \vspace{0.25em}%
+  \noindent\textit{\color{CVPrimary}#1}\par\vspace{0.12em}%
+}
+
+\newcounter{reportnum}
+\newcommand{\cvreportitem}[2][]{%
+  \refstepcounter{reportnum}%
+  \hangindent=1.75em\hangafter=1
+  \noindent{\color{CVPrimary}\thereportnum.}\ #2\par
+  \ifx\relax#1\relax\else\cvbullet{#1}\fi
+  \vspace{0.12em}%
+}
+
+\begin{document}
+\pagestyle{cvstyle}
+\pagenumbering{arabic}
+
+\begin{center}
+  {\LARGE\bfseries\color{CVPrimary} Joshua Terranova}\\[0.55em]
+  {\small
+    7748 Via Sorrento, Burbank, CA 91504\\[0.2em]
+    (818) 515-9043 \textbar\
+    \href{mailto:jjt_373@usc.edu}{jjt\_373@usc.edu}%
+  }\\[0.75em]
+  {\large\color{CVAccent}\textsc{Curriculum Vitae}}\\[0.35em]
+  {\small\color{CVMuted} June 11, 2026}
+\end{center}
+
+\vspace{0.15em}
+\cvheadrule
+
+\vspace{0.35em}
+\noindent{\bfseries\color{CVPrimary}\MakeUppercase{Table of Contents}}\par\vspace{0.25em}
+\tableofcontents
+
+\clearpage
+
+\cvsection{Education}
+
+\cvedu{B.Sc.\ in Computer Science}{\textsc{University of Southern California}, 2027}
+
+\cvedu{A.Sc.\ in Mathematics}{\textsc{Los Angeles Mission College}, 2025}
+
+\cvsection{Professional Experience}
+
+\cventry{Lead Systems Engineer / Research Lead, NASA Team 19: \textit{Ad Astra}}{National Aeronautics and Space Administration}{2026}
+\cvitem{Sole Lead Systems Engineer on 18-member MCA team (PM Alejandro Gonzalez, Chief Scientist Hannah Kim, DPMR Alfredo Guerra); led Engineering subteam integration with Science and Programmatic leads across MCR--PDR.}
+\cvitem{Authored spacecraft overview, subsystem summary table (mass/power/dimensions), and top-level subsystem requirements flow-down for a lunar PSR volatile-prospecting rover.}
+\cvitem{Owned interface architecture: 19-pathway ICD matrix, N\textsuperscript{2} diagram, and interface narrative linking payload instruments to vehicle subsystems.}
+\cvitem{Co-led thermal subsystem (requirements, heat-flow maps, trade study) for 40--394 K PSR environments; supported CDH trade study and communications downlink analysis.}
+\cvitem{Owned CDH subsystem through PDR: requirements, software architecture flowchart, TRL/sub-assembly baselines, recovery/redundancy plans, and verification matrix for science data acquisition and S-band downlink.}
+\cvitem{Researched alternative mission concepts with science lead; developed science-to-engineering traceability from volatile-detection objectives through verification planning.}
+\cventryend
+
+\cventry{Lead Systems Engineer / Research Lead, NASA Team 10: \textit{Forged in Orbit}}{National Aeronautics and Space Administration}{2025}
+\cvitem{Sole Lead Systems Engineer on 12-member NPWEE team (PI Joel Bhattarai, PM Alexis Gallardo, Chief Engineer Justin Schueler, Chief Scientist Riya Jain); integrated Engineering, Science, and Programmatic inputs for a \$10{,}000-class technology proposal.}
+\cvitem{Researched thermodynamic, mechanical, and materials behavior of vacuum-environment cold welding; derived quantitative KPPs from ASTROBEAT ISS heritage, NTRS literature, and materials compatibility analysis.}
+\cvitem{Authored cold-welding performance specifications in team Technical Research Memorandum; co-authored final proposal and quad-chart concept portfolio (cold-weld reclamation, vacuum dust ejection, triboelectric transport).}
+\cvitem{Lead-authored L-MAP-FI: multi-agent lunar pathfinding and environmental forecasting framework (ROS2/Gazebo simulation, Fusion 360 FEA validation).}
+\cvitem{Designed vacuum-test research protocol for weld-parameter characterization; conducted formal peer review of competing NASA proposals (Teams 16--18) on Review Panel \#6.}
+\cventryend
+
+\cvbullet{Lead Systems Engineer Intern, National Aeronautics and Space Administration (NASA), 2025--2026.}
+
+\cvbullet{Computer Engineer Intern, National Aeronautics and Space Administration (NASA), 2025 (multiple terms).}
+
+\cvsection{Additional Experience}
+
+\cventry{Software Engineer, USC Field Robotics Lab}{University of Southern California}{2026--Present}
+\cvitem{Autonomy research software for University Rover Challenge 2026 on ROS 2 (Humble).}
+\cvitem{7-target mission orchestrator; GNSS waypoint navigation; ArUco visual servoing; YOLO detection and gating.}
+\cvitem{Nav2 integration, EKF sensor fusion, e-stop interlocks, and judge telemetry web dashboard.}
+\cventryend
+
+\cventry{Software Engineer, USC Rocket Propulsion Lab}{University of Southern California}{2025--Present}
+\cvitem{Software systems for experimental propulsion research: design analysis, test operations, and instrumentation.}
+\cventryend
+
+\cventry{Software Engineer, USC Racing (Formula SAE)}{University of Southern California}{2025--2026}
+\cventryend
+
+\cventry{Research Fellow, USC MESA}{University of Southern California}{2022--Present}
+\cvitem{Research mentorship and STEM pathway development for undergraduate research readiness and scientific communication.}
+\cventryend
+
+\cvsection{Certifications}
+
+\cvbullet{NASA L'SPACE Mission Concept Academy (MCA), Certificate of Completion, Team 19: \textit{Ad Astra}, 2026.}
+
+\cvbullet{NASA L'SPACE NASA Proposal Writing and Evaluation Experience (NPWEE) Academy, Certificate of Completion, Team 10: \textit{Forged in Orbit}, 2025.}
+
+\cvsection{Personal Projects}
+
+\cvproject{SpaAIder (Local-First Agentic Runtime)}{2025--Present}
+\cvitem{Foundational split: TypeScript control plane (\texttt{runOrchestrator}) owns user-facing planning and delegation; Python FastAPI substrate owns persistence, memory APIs, and service routes; Ollama supplies sovereign on-device inference across orchestrator, subagent, and embedding models.}
+\cvitem{Memory substrate: \texttt{MemoryManager} delegates to contracted SQL tables (sessions, messages, knowledge, context, embeddings on SQLite/PostgreSQL) and an \texttt{EpisodicStore}; \texttt{/api/v1/memory/recall} fuses vector, episodic, and keyword channels before each plan.}
+\cvitem{Episodic consolidation: session close triggers LLM synthesis of transcripts into episodes (summary, key facts, topics, tone) merged into durable user profiles.}
+\cvitem{Context assembly: Python \texttt{ContextEngine} allocates a fixed token budget across system instructions, user profile, episodic hits, and working memory; an \texttt{EmbeddingBridge} (TF-IDF locally, Ollama \texttt{nomic-embed-text} when configured) scores similarity for recall and knowledge search.}
+\cvitem{Ingress and observability: heterogeneous clients (web, mobile, Electron, CLI, Code-OSS IDE) POST to \texttt{/api/agent/stream}; an \texttt{AsyncEventQueue} multiplexes orchestration events---context fetch, plan emission, per-task status, subagent streams, final answer---over server-sent events.}
+\cvitem{Planning contract: meta-orchestrator LLM receives recalled \texttt{UserContext} and must emit JSON \texttt{TaskPlan} only (intent, agent assignments, \texttt{dependsOn} DAG edges over a 135-agent type taxonomy) without executing tasks---pure delegation.}
+\cvitem{Execution engine: dependency-aware parallel scheduler launches runnable tasks up to \texttt{maxParallelTasks}; domain subagents (code, filesystem, search, vision, memory, research, backend) run as async generators; \texttt{memory-agent} proxies read/write/recall to FastAPI; \texttt{AgentBus} provides in-process pub/sub and request--reply between agents.}
+\cvitem{Quality loop and surfaces: critique and synthesis agents post-process subagent artifacts into one response; completed turns persist through the memory layer; IDE fork reuses the same agent stream with editor-grounded file, selection, and terminal context.}
+\cventryend
+
+\cvproject{Pneumonia Detection from Chest X-Rays}{2025--2026}
+\cvitem{TensorFlow pipeline (\texttt{train.py}) for binary chest radiograph classification on 988 images (620 train / 368 validation).}
+\cvitem{EfficientNetV2B0 transfer learning with focal loss, class balancing, oversampling, and two-phase fine-tuning.}
+\cvitem{Test-time augmentation, threshold tuning, and evaluation via confusion matrices, ROC/AUC, and precision--recall curves.}
+\cvitem{Achieved 83\% validation accuracy; exported models and metrics to structured \texttt{outputs/}.}
+\cventryend
+
+\cvproject{Small-Scale Language Model (LLM-V1.0)}{2025--2026}
+\cvitem{Designed and trained a ${\sim}$30M-parameter GPT-style transformer (8 layers, 8 heads, 512-dim embeddings, 8{,}192-token BPE vocabulary).}
+\cvitem{PyTorch training, checkpointing, and text-generation pipelines for Colab and local workflows.}
+\cventryend
+
+\cvsection{Research Profile}
+
+Research-focused engineer investigating lunar volatile characterization, vacuum-materials behavior, AI-driven autonomous exploration, medical image classification, and agentic AI systems. Developed SpaAIder, an independent retrieval-augmented, plan-and-execute multi-agent runtime---heterogeneous clients stream intents over server-sent events to a hierarchical orchestrator performing context hydration, meta-LLM task decomposition with dependency-aware parallel subagent scheduling, critique--synthesis refinement, Ollama-first sovereign inference, tiered episodic--semantic--vector memory, and a Code-OSS IDE fork with editor-grounded context. At NASA Team 19 (\textit{Ad Astra}), conducted trade-study-driven research on PSR volatile prospecting at Nobile Rim 2---including thermal modeling across 40--394 K environments, science-to-requirements traceability, and subsystem trade analyses supporting in-situ volatile detection via LiDAR, spectrometry, and rotary-percussive sampling. At NASA Team 10, authored literature-backed technical research on vacuum cold-welding parameters (ASTROBEAT ISS heritage, NTRS sources, materials compatibility) and lead-authored L-MAP-FI, a multi-agent pathfinding and environmental forecasting research concept validated through ROS2/Gazebo simulation and FEA. Independently developed a chest X-ray pneumonia detection pipeline using EfficientNetV2B0 transfer learning with focal loss, class-balanced training, and test-time augmentation, achieving 83\% validation accuracy on 368 held-out radiographs. Research record spans agent orchestration, persistent memory systems, autonomous rover software, deep-learning experimentation, and formal peer review of competing NASA technology proposals.
+
+\cvsection{Research Interests}
+
+Artificial intelligence and machine learning; inference models; retrieval-augmented generation; computer vision; medical image analysis and diagnostic machine learning; agentic AI and multi-agent orchestration; local LLM inference and transformer architectures; agentic AI with surrogate specializing models; optimization for accuracy and efficiency on orchestrator (router) LLMs in determining the single most accurate agent; autonomous mobile robotics and ROS 2 systems; spacecraft systems architecting; multi-body planetary surface mobility; autonomous roving platforms; subsystem-level interdependency modeling; fault-tolerant command and data handling for extra-terrestrial environments.
+
+\cvsection{Research Publications and Technical Reports}
+
+\cvsubhead{National Aeronautics and Space Administration (NASA), Team 19: Ad Astra, 2026}
+\noindent{\small\color{CVMuted}\textit{18-member L'SPACE MCA team. Lead Systems Engineer / Research Lead (sole LSE). Reports to PM Alejandro Gonzalez; integrates with Chief Scientist Hannah Kim and DPMR Alfredo Guerra.}}\par\vspace{0.12em}
+
+\cvreportitem[Lead Systems Engineer contribution: owned CDH subsystem through PDR---requirements narrative, software architecture flowchart, TRL/sub-assembly baselines, recovery/redundancy plans, and verification matrix for science data acquisition, processing, and S-band downlink; coordinated Engineering subteam inputs under PM review.]{Gonzalez, A., Guerra, A., Chang, A., Dixon, D., Zhou, E., Senteza, J., Mendez, J., Kumar, K., Richmond, R., \textbf{Terranova, J.}, Kim, H., French, S., Noor, M., Saad, S., Durkin, J., Raihan, F., Gutierrez, N., \& Saxena, H., Preliminary engineering design, verification matrix, and integrated vehicle baseline for an autonomous lunar volatile-prospecting rover at Nobile Rim 2 (Preliminary Design Review, Team 19), National Aeronautics and Space Administration (NASA), 2026.}
+
+\cvreportitem[Lead Systems Engineer contribution: researched mission architecture and operational paradigms for in-situ volatile characterization at Nobile Rim 2; linked Artemis-class PSR science objectives to traverse, communications, and programmatic constraints with Science and Programmatic subteams.]{Gonzalez, A., Guerra, A., Chang, A., Dixon, D., Zhou, E., Senteza, J., Mendez, J., Kumar, K., Richmond, R., \textbf{Terranova, J.}, Kim, H., French, S., Noor, M., Saad, S., Durkin, J., Raihan, F., Gutierrez, N., \& Saxena, H., Definitive mission architecture, operational paradigm, and programmatic baseline for in-situ lunar volatile characterization (Mission Definition Review, Team 19), National Aeronautics and Space Administration (NASA), 2026.}
+
+\cvreportitem[Lead Systems Engineer contribution: authored spacecraft overview, subsystem summary table (mass/power/dimensions), 19-interface ICD matrix, N\textsuperscript{2} diagram, and interface narrative; co-led thermal heat-flow analysis and CDH/thermal trade studies for 40--394 K PSR operating environments.]{Gonzalez, A., Guerra, A., Chang, A., Dixon, D., Zhou, E., Senteza, J., Mendez, J., Kumar, K., Richmond, R., \textbf{Terranova, J.}, Kim, H., French, S., Noor, M., Saad, S., Durkin, J., Raihan, F., Gutierrez, N., \& Saxena, H., System requirements baseline, subsystem allocation framework, and interface control architecture for a lunar PSR exploration rover (System Requirements Review, Team 19), National Aeronautics and Space Administration (NASA), 2026.}
+
+\cvreportitem[Lead Systems Engineer contribution: co-authored alternative mission concept comparison with Chief Scientist Hannah Kim; developed conceptual architecture integrating LiDAR navigation, rotary-percussive regolith sampling, and onboard spectrometric volatile analysis for PSR reconnaissance.]{Gonzalez, A., Guerra, A., Chang, A., Dixon, D., Zhou, E., Senteza, J., Mendez, J., Kumar, K., Richmond, R., \textbf{Terranova, J.}, Kim, H., French, S., Noor, M., Saad, S., Durkin, J., Raihan, F., Gutierrez, N., \& Saxena, H., Conceptual elaboration of an autonomous lunar volatile-reconnaissance architecture for permanently shadowed region prospecting (Mission Concept Review, Team 19), National Aeronautics and Space Administration (NASA), 2026.}
+
+\cvsubhead{National Aeronautics and Space Administration (NASA), Team 10, 2025}
+\noindent{\small\color{CVMuted}\textit{12-member L'SPACE NPWEE team. Lead Systems Engineer / Research Lead (sole LSE). PI Joel Bhattarai; PM Alexis Gallardo; Chief Engineer Justin Schueler; Chief Scientist Riya Jain.}}\par\vspace{0.12em}
+
+\cvreportitem[Lead Systems Engineer contribution: co-authored \$10{,}000-class final proposal; synthesized literature-backed cold-welding KPPs (100 MPa pressure, 10 kN force, $\geq$80 MPa shear strength) and autonomous in-situ repair architecture aligned to NASA Technology Taxonomy (TX4.3.3, TX4.6.1, TX12.4.1, TX12.4.6).]{Bhattarai, J., Schueler, J., \textbf{Terranova, J.}, Rojas, J., Gallardo, A., Ek, S., Jain, R., Concepcion, W., Jonson, M., Li, Q., Vasquez, G., \& Atwell, J., Solid-state in-situ metallurgical reconstitution via autonomous cold-welding attachment for lunar infrastructure salvage (Final Proposal, Team 10: Forged in Orbit), National Aeronautics and Space Administration (NASA), 2025.}
+
+\cvreportitem[Lead Systems Engineer contribution: researched tripartite lunar ISRU and mobility concept portfolio---oxide-scrubbing cold-weld reclamation, ultrasonic vacuum dust ejection, triboelectric autonomous transport---with comparative cost and performance analysis (94\% cost reduction vs.\ TIG welding; 1.5 g/min vacuum dust removal).]{Bhattarai, J., Schueler, J., \textbf{Terranova, J.}, Rojas, J., Gallardo, A., Ek, S., Jain, R., Concepcion, W., Jonson, M., Li, Q., \& Vasquez, G., Tripartite technology concept portfolio for autonomous lunar surface operations and in-situ resource utilization (Quad Charts, Team 10), National Aeronautics and Space Administration (NASA), 2025.}
+
+\cvreportitem[Lead author: designed L-MAP-FI multi-agent pathfinding and predictive environmental forecasting framework for autonomous lunar reconnaissance swarms; validated through ROS2/Gazebo simulation and Fusion 360 FEA (70$\times$ coverage, 160$\times$ cost efficiency vs.\ state-of-the-art).]{\textbf{Terranova, J.}, \& Vasquez, G., L-MAP-FI: A multi-agent pathfinding and predictive environmental forecasting interface for autonomous lunar reconnaissance swarms (Technical Presentation, Team 10), National Aeronautics and Space Administration (NASA), 2025.}
+
+\cvreportitem[Primary research author: derived cold-welding performance specifications from ASTROBEAT ISS in-orbit repair experiments, NTRS heritage data, and austenitic stainless/aluminum/copper alloy compatibility analysis across a $-183\,^{\circ}\mathrm{C}$ to $+137\,^{\circ}\mathrm{C}$ thermal envelope.]{Schueler, J., \textbf{Terranova, J.}, Bhattarai, J., \& Atwell, J., Thermodynamic, mechanical, and materials characterization of vacuum-environment cold-welding parameters for robotic lunar repair systems (Technical Research Memorandum, Team 10), National Aeronautics and Space Administration (NASA), 2025.}
+
+\cvreportitem{Bhattarai, J., Gallardo, A., Ek, S., Schueler, J., \textbf{Terranova, J.}, Rojas, J., Jain, R., Concepcion, W., Jonson, M., Li, Q., \& Vasquez, G., Interdisciplinary workforce development and competency matrix for NASA-aligned technology infusion proposals (Teaming \& Workforce Development Section, Team 10), National Aeronautics and Space Administration (NASA), 2025.}
+
+\cvreportitem[Lead Systems Engineer: conducted formal peer evaluation of competing NASA technology proposals (Teams 16--18) using NASA-structured scoring methodology on Review Panel \#6.]{\textbf{Terranova, J.}, Formal peer evaluation of competing NASA technology proposals via NASA-structured scoring methodology (Review Panel \#6, 2025). Evaluated proposals from Teams 16, 17, and 18.}
+
+\cvsubhead{Personal Projects}
+
+\cvreportitem{\textbf{Terranova, J.} (2025--2026). SpaAIder: A local-first multi-agent runtime with persistent cross-session memory and heterogeneous clients (Personal project).}
+
+\cvreportitem{\textbf{Terranova, J.} (2026). EfficientNetV2-based chest X-ray pneumonia classification with focal loss, class balancing, and test-time augmentation (Personal project).}
+
+\cvreportitem{\textbf{Terranova, J.} (2026). LLM-V1.0: Small-scale transformer language model for local and Colab training (Personal project).}
+
+\cvreportitem{\textbf{Terranova, J.} (2026). URC CV: University Rover Challenge autonomy software (USC Field Robotics Lab research software).}
+
+\end{document}
