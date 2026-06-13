@@ -118,6 +118,15 @@
   \vspace{0.12em}%
 }
 
+\newcommand{\cvcoursework}[1]{%
+  \noindent{\small\textit{Relevant Coursework:} #1}\par\vspace{0.2em}%
+}
+
+\newcommand{\cvskillgroup}[2]{%
+  \noindent\textbf{#1}\par
+  \noindent\hspace{0.55em}{\color{CVPrimary}\textendash}\ #2\par\vspace{0.08em}%
+}
+
 \begin{document}
 \pagestyle{cvstyle}
 \pagenumbering{arabic}
@@ -127,7 +136,9 @@
   {\small
     7748 Via Sorrento, Burbank, CA 91504\\[0.2em]
     (818) 515-9043 \textbar\
-    \href{mailto:jjt_373@usc.edu}{jjt\_373@usc.edu}%
+    \href{mailto:jjt_373@usc.edu}{jjt\_373@usc.edu}\\[0.2em]
+    \href{https://github.com/joshuaterranova}{github.com/joshuaterranova} \textbar\
+    \href{https://www.linkedin.com/in/joshua-terranova}{linkedin.com/in/joshua-terranova}%
   }\\[0.75em]
   {\large\color{CVAccent}\textsc{Curriculum Vitae}}\\[0.35em]
   {\small\color{CVMuted} June 11, 2026}
@@ -145,8 +156,20 @@
 \cvsection{Education}
 
 \cvedu{B.Sc.\ in Computer Science}{\textsc{University of Southern California}, 2027}
+\cvcoursework{Data Structures and Object-Oriented Design, Introduction to Algorithms, Artificial Intelligence, Machine Learning, Computer Vision, Probability and Statistics for Electrical Engineering and Computer Science, Linear Algebra and Linear Differential Equations, Discrete Methods in Computer Science, Principles of Software Development, Introduction to Robotics}
 
 \cvedu{A.Sc.\ in Mathematics}{\textsc{Los Angeles Mission College}, 2025}
+\cvcoursework{Calculus I--III, Linear Algebra, Differential Equations, Probability and Statistics, Discrete Mathematics}
+
+\cvsection{Technical Skills}
+
+\cvskillgroup{Languages}{Python (primary), TypeScript, JavaScript, C++, MATLAB, SQL, Bash/Zsh, \LaTeX}
+\cvskillgroup{Machine Learning \& Deep Learning}{PyTorch, TensorFlow/Keras, scikit-learn, HuggingFace Transformers, PEFT (LoRA, adapters, prefix tuning), NumPy, SciPy, Pandas, Matplotlib, OpenCV, YOLO (ultralytics), EfficientNetV2}
+\cvskillgroup{ML Research (ML Benchmark Suite)}{Causal inference (meta-learners, NOTEARS, PCMCI, OPE), Bayesian deep learning (VI, MC Dropout, conformal prediction), generative models (DDPM, flow matching, diffusion posterior sampling), graph neural networks (GCN, GAT, GIN, GraphSAGE, temporal GNNs), self-supervised learning (SimCLR, BYOL, VICReg, MAE), federated learning (FedAvg, FedProx, DP-SGD, secure aggregation), scientific ML (PINNs, EGNN, scVAE, FNO)}
+\cvskillgroup{Agentic AI \& LLM Systems}{Ollama, FastAPI, SQLite, PostgreSQL, server-sent events, retrieval-augmented generation, vector embeddings (TF-IDF, nomic-embed-text), episodic memory, multi-agent orchestration}
+\cvskillgroup{Robotics \& Autonomy}{ROS 2 (Humble), Nav2, Gazebo, EKF sensor fusion, GNSS waypoint navigation, ArUco visual servoing, YOLO-based object detection, e-stop interlock systems}
+\cvskillgroup{Systems \& DevOps}{Git, GitHub, Docker, Linux, pyenv, Google Colab, Jupyter Notebooks, pytest, YAML-driven experiment pipelines}
+\cvskillgroup{Spacecraft \& CAD}{Autodesk Fusion 360, FEA (finite element analysis), N\textsuperscript{2} diagram, ICD matrix authoring, S-band link budget analysis, spacecraft subsystem trade studies, TRL assessment}
 
 \cvsection{Professional Experience}
 
@@ -157,6 +180,9 @@
 \cvitem{Co-led thermal subsystem (requirements, heat-flow maps, trade study) for 40--394 K PSR environments; supported CDH trade study and communications downlink analysis.}
 \cvitem{Owned CDH subsystem through PDR: requirements, software architecture flowchart, TRL/sub-assembly baselines, recovery/redundancy plans, and verification matrix for science data acquisition and S-band downlink.}
 \cvitem{Researched alternative mission concepts with science lead; developed science-to-engineering traceability from volatile-detection objectives through verification planning.}
+\cvitem{Developed science-to-engineering traceability matrix linking volatile-detection science objectives (LiDAR, spectrometry, rotary-percussive sampling) through system-level KPPs to subsystem verification criteria.}
+\cvitem{Supported communications downlink analysis for S-band relay architecture; evaluated link margin, data rate, and contact window constraints for Nobile Rim 2 orbital geometry.}
+\cvitem{Coordinated Engineering subteam documentation for MCR--PDR milestone reviews; managed version control and cross-subsystem consistency across 19-interface ICD under PM review cadence.}
 \cventryend
 
 \cventry{Lead Systems Engineer / Research Lead, NASA Team 10: \textit{Forged in Orbit}}{National Aeronautics and Space Administration}{2025}
@@ -165,6 +191,9 @@
 \cvitem{Authored cold-welding performance specifications in team Technical Research Memorandum; co-authored final proposal and quad-chart concept portfolio (cold-weld reclamation, vacuum dust ejection, triboelectric transport).}
 \cvitem{Lead-authored L-MAP-FI: multi-agent lunar pathfinding and environmental forecasting framework (ROS2/Gazebo simulation, Fusion 360 FEA validation).}
 \cvitem{Designed vacuum-test research protocol for weld-parameter characterization; conducted formal peer review of competing NASA proposals (Teams 16--18) on Review Panel \#6.}
+\cvitem{Developed quantitative KPPs for vacuum cold-welding system: minimum contact pressure 100 MPa, actuation force 10 kN, target shear strength $\geq$80 MPa, derived from ASTROBEAT ISS heritage data and NTRS archival literature.}
+\cvitem{Performed comparative cost and performance analysis across three ISRU technology concepts: cold-weld reclamation (94\% cost reduction vs.\ TIG welding), ultrasonic vacuum dust ejection (1.5 g/min removal rate), and triboelectric autonomous transport.}
+\cvitem{Evaluated technology readiness levels and NASA Technology Taxonomy alignment (TX4.3.3, TX4.6.1, TX12.4.1, TX12.4.6) for autonomous in-situ repair architectures.}
 \cventryend
 
 \cvbullet{Lead Systems Engineer Intern, National Aeronautics and Space Administration (NASA), 2025--2026.}
@@ -174,20 +203,38 @@
 \cvsection{Additional Experience}
 
 \cventry{Software Engineer, USC Field Robotics Lab}{University of Southern California}{2026--Present}
-\cvitem{Autonomy research software for University Rover Challenge 2026 on ROS 2 (Humble).}
-\cvitem{7-target mission orchestrator; GNSS waypoint navigation; ArUco visual servoing; YOLO detection and gating.}
-\cvitem{Nav2 integration, EKF sensor fusion, e-stop interlocks, and judge telemetry web dashboard.}
+\cvitem{Developed full autonomy software stack for University Rover Challenge 2026 on ROS 2 (Humble); system integrated navigation, perception, manipulation, and science task modules.}
+\cvitem{Implemented 7-target mission orchestrator managing state machine transitions across autonomous navigation, object retrieval, equipment servicing, and science site analysis tasks.}
+\cvitem{GNSS waypoint navigation pipeline with coordinate-frame transforms (WGS-84 to local ENU), dead-reckoning fallback, and dynamic obstacle replanning via Nav2 costmaps.}
+\cvitem{ArUco marker visual servoing for precision docking: camera intrinsic calibration, pose estimation via solvePnP, and proportional velocity controller with convergence tolerance.}
+\cvitem{YOLO-based object detection with confidence gating; integrated detection results into Nav2 behavior tree for target approach and manipulation task triggering.}
+\cvitem{EKF sensor fusion combining IMU (9-DOF), wheel odometry, and GNSS measurements; tuned process and measurement noise covariances for outdoor terrain traversal.}
+\cvitem{E-stop interlock system with hardware and software layers; watchdog timers, heartbeat monitoring, and safe-state recovery procedures per URC safety requirements.}
+\cvitem{Judge telemetry web dashboard: real-time ROS 2 topic visualization, rover state display, GPS track overlay, and task completion logging served over WebSocket.}
+\cvitem{System integration testing on outdoor terrain; characterized localization drift, detection false-positive rates, and navigation replanning latency under competition conditions.}
+\cvitem{Collaborated with 10+ team members across mechanical, electrical, and software subteams; maintained shared ROS 2 workspace, launch file architecture, and hardware abstraction layer.}
 \cventryend
 
 \cventry{Software Engineer, USC Rocket Propulsion Lab}{University of Southern California}{2025--Present}
-\cvitem{Software systems for experimental propulsion research: design analysis, test operations, and instrumentation.}
+\cvitem{Developed software systems supporting experimental liquid and hybrid propulsion research: sensor data acquisition, test sequence automation, and post-test data reduction pipelines.}
+\cvitem{Instrumentation software for pressure transducers, thermocouples, and load cells; real-time data logging with configurable sampling rates and alarm thresholds.}
+\cvitem{Test operations tooling: automated pre-fire checklist verification, countdown sequencing, and abort logic with hardware interlock validation.}
+\cvitem{Post-test analysis pipelines: chamber pressure trace parsing, specific impulse calculation, and thrust curve integration from raw force sensor data.}
+\cvitem{Design analysis support: propellant mass flow rate modeling, nozzle expansion ratio trade studies, and combustion chamber thermal margin estimation.}
 \cventryend
 
 \cventry{Software Engineer, USC Racing (Formula SAE)}{University of Southern California}{2025--2026}
+\cvitem{Developed embedded software and data acquisition systems for Formula SAE vehicle; sensor integration for suspension, brake, and powertrain telemetry.}
+\cvitem{Designed and implemented CAN bus data logging pipeline; parsed vehicle telemetry for real-time driver feedback display and post-session performance analysis.}
+\cvitem{Contributed to vehicle dynamics simulation tooling for suspension geometry and lap time optimization.}
+\cvitem{Supported systems integration testing and on-track data collection during development and competition events.}
 \cventryend
 
 \cventry{Research Fellow, USC MESA}{University of Southern California}{2022--Present}
-\cvitem{Research mentorship and STEM pathway development for undergraduate research readiness and scientific communication.}
+\cvitem{Research mentor and STEM pathway advisor for underrepresented undergraduate students pursuing research readiness; conducted workshops on scientific communication, literature review, and research proposal writing.}
+\cvitem{Developed curriculum materials covering research methodology, academic writing conventions, and graduate school preparation strategies for STEM undergraduates.}
+\cvitem{Facilitated peer mentorship cohorts; tracked mentee progress toward research placement, conference participation, and graduate program applications.}
+\cvitem{Contributed to program assessment and reporting; collected outcome metrics on mentee research placement rates and academic progression.}
 \cventryend
 
 \cvsection{Certifications}
@@ -207,6 +254,10 @@
 \cvitem{Planning contract: meta-orchestrator LLM receives recalled \texttt{UserContext} and must emit JSON \texttt{TaskPlan} only (intent, agent assignments, \texttt{dependsOn} DAG edges over a 135-agent type taxonomy) without executing tasks---pure delegation.}
 \cvitem{Execution engine: dependency-aware parallel scheduler launches runnable tasks up to \texttt{maxParallelTasks}; domain subagents (code, filesystem, search, vision, memory, research, backend) run as async generators; \texttt{memory-agent} proxies read/write/recall to FastAPI; \texttt{AgentBus} provides in-process pub/sub and request--reply between agents.}
 \cvitem{Quality loop and surfaces: critique and synthesis agents post-process subagent artifacts into one response; completed turns persist through the memory layer; IDE fork reuses the same agent stream with editor-grounded file, selection, and terminal context.}
+\cvitem{Agent taxonomy and routing: 135-agent type taxonomy organized by domain (code, filesystem, search, vision, memory, research, backend); meta-orchestrator LLM selects agent assignments via structured JSON TaskPlan with \texttt{dependsOn} DAG edges---never executes tasks directly.}
+\cvitem{Persistence architecture: PostgreSQL production / SQLite development with versioned SQL schema migrations; sessions, messages, knowledge, context, and embeddings tables with foreign-key integrity; \texttt{EpisodicStore} backed by same schema.}
+\cvitem{IDE integration: Code-OSS fork with extension injecting active file path, text selection, and terminal stdout into the agent context window; same FastAPI backend serves both web client and IDE extension over identical SSE stream.}
+\cvitem{Deployment targets: web (React), mobile (React Native), desktop (Electron), CLI (Node.js), and IDE extension; all share the TypeScript \texttt{runOrchestrator} and POST to the same \texttt{/api/agent/stream} endpoint.}
 \cventryend
 
 \cvproject{Pneumonia Detection from Chest X-Rays}{2025--2026}
@@ -214,20 +265,73 @@
 \cvitem{EfficientNetV2B0 transfer learning with focal loss, class balancing, oversampling, and two-phase fine-tuning.}
 \cvitem{Test-time augmentation, threshold tuning, and evaluation via confusion matrices, ROC/AUC, and precision--recall curves.}
 \cvitem{Achieved 83\% validation accuracy; exported models and metrics to structured \texttt{outputs/}.}
+\cvitem{Dataset: 988 chest radiographs (620 train / 368 validation) from Kaggle RSNA Pneumonia Detection Challenge subset; applied class-weighted oversampling to address 3:1 normal-to-pneumonia imbalance.}
+\cvitem{Focal loss formulation: $\mathrm{FL}(p_t) = -\alpha_t(1-p_t)^\gamma \log(p_t)$ with $\gamma=2.0$ and $\alpha=0.25$; suppresses easy-negative gradient contribution and focuses training on hard positives.}
+\cvitem{Two-phase fine-tuning: phase 1 trains classification head with frozen EfficientNetV2 backbone (up to 25 epochs); phase 2 unfreezes top 40 backbone layers at $10\times$ reduced learning rate ($10^{-5}$) for up to 10 additional epochs.}
+\cvitem{Evaluation suite: per-class precision/recall/F1, confusion matrix, ROC/AUC and precision--recall curves with average precision; threshold tuned on validation set to maximize F1 with test-time augmentation.}
 \cventryend
 
 \cvproject{Small-Scale Language Model (LLM-V1.0)}{2025--2026}
 \cvitem{Designed and trained a ${\sim}$30M-parameter GPT-style transformer (8 layers, 8 heads, 512-dim embeddings, 8{,}192-token BPE vocabulary).}
 \cvitem{PyTorch training, checkpointing, and text-generation pipelines for Colab and local workflows.}
+\cvitem{Architecture: GPT-style decoder-only transformer; 8 layers, 8 attention heads, 512-dimensional embeddings, 512-token context window, feedforward dimension 2048 ($4\times$ expansion), ${\sim}$30M total parameters.}
+\cvitem{Tokenization: byte-pair encoding (BPE) with 8{,}192-token vocabulary trained on corpus via HuggingFace tokenizers; special tokens for BOS, EOS, and padding.}
+\cvitem{Training: AdamW optimizer (lr=$3\times10^{-4}$, $\beta_1=0.9$, $\beta_2=0.95$, weight decay=0.1); cosine learning rate schedule with warmup; gradient clipping at 1.0; mixed-precision (fp16) on CUDA; gradient accumulation for memory efficiency.}
+\cvitem{Data pipeline: streaming dataset loader with dynamic batching; sequence packing to maximize GPU utilization; train/val split with per-epoch perplexity tracking.}
+\cvitem{Checkpointing: saves model weights, optimizer state, and scheduler state every $N$ steps; supports resume from checkpoint for Colab session continuity.}
+\cvitem{Inference: top-$k$ and nucleus (top-$p$) sampling with temperature scaling; beam search option; streaming token generation with configurable \texttt{max\_new\_tokens}.}
+\cvitem{Evaluation: perplexity on held-out validation set; qualitative generation samples logged at each checkpoint; attention weight visualization for interpretability analysis.}
+\cvitem{Colab compatibility: optimized for T4/A100 free-tier constraints; automatic device detection (CUDA/MPS/CPU); fp16 auto-casting with fallback to fp32 for stability.}
+\cventryend
+
+\cvproject{ML Research Benchmark Suite (10 modules)}{2025--2026}
+\cvitem{Designed and implemented ten independent reproducible research frameworks spanning the major subfields of modern machine learning; each module follows a shared architecture of synthetic ground-truth DGPs, YAML-configured benchmark runners, pytest suites, and structured JSON/Markdown evaluation reports.}
+\cvitem{Module 01---Causal ML for Decision-Making: five meta-learners (S/T/X/R/Causal Forest), doubly robust and TMLE estimators, NOTEARS linear and nonlinear DAG structure learning, PCMCI time-series causal discovery, IPS/SNIPS/DR off-policy evaluation, conformal CATE intervals, E-value sensitivity analysis; 47 source modules, 12 test files, 71 passing tests.}
+\cvitem{Module 02---Foundation Model Adaptation: LoRA rank decomposition, adapter bottlenecks, prefix tuning, full fine-tune baselines; LiSSA influence function attribution; TracIn checkpoint-based data attribution; ECE/MCE calibration; risk-coverage curves for selective prediction; bootstrap confidence intervals.}
+\cvitem{Module 03---Reinforcement Learning for Real Environments: Conservative Q-Learning (CQL) and Implicit Q-Learning (IQL) offline RL; CMDP Lagrangian safe RL with primal-dual lambda updates; ensemble world models with epistemic/aleatoric uncertainty decomposition; CEM planning over model rollouts.}
+\cvitem{Module 04---Probabilistic and Bayesian Deep Learning: mean-field variational inference with BayesianLinear layers and closed-form KL; MC Dropout uncertainty; deep ensembles with variance decomposition; temperature scaling and vector scaling calibration; split conformal prediction with RAPS adaptive score function; reliability diagrams.}
+\cvitem{Module 05---Generative Modeling for Science: DDPM with cosine and linear schedules; DDIM deterministic sampling; conditional score network with classifier-free guidance; flow matching with straight-path conditional vector fields; Diffusion Posterior Sampling (DPS) for inverse problems; Bayesian molecular optimization with EI/UCB/PI acquisition.}
+\cvitem{Module 06---Graph ML and Relational Systems: GCN (spectral), GAT (multi-head attention with stored attention weights), GIN (learnable epsilon, BatchNorm), GraphSAGE (mean/max/LSTM aggregators), DiffPool differentiable pooling; temporal GNN with GRU memory and negative sampling; link prediction with AUC/AP/MRR evaluation.}
+\cvitem{Module 07---Self-Supervised Representation Learning: SimCLR (NT-Xent loss), MoCo (momentum queue), BYOL (EMA target network, asymmetric predictor), VICReg (invariance + variance + covariance), Barlow Twins (cross-correlation regularization), masked autoencoder (MAE) with 75\% masking ratio; linear probe and $k$-NN evaluation; feature alignment/uniformity metrics.}
+\cvitem{Module 08---Neurosymbolic Reasoning: differentiable forward chaining with product/G\"odel/\L{}ukasiewicz t-norms and fixed-point iteration; neural theorem prover with embedding-space unification similarity; DSL with type system for program synthesis; beam search over typed program space; fuzzy logic circuit with learnable gates.}
+\cvitem{Module 09---Federated and Privacy-Preserving ML: FedAvg, FedProx (proximal regularization), FedNova (normalized updates), FedBN (local BN statistics); DP-SGD with per-sample gradient clipping and Gaussian noise injection; R\'enyi DP accountant with $(\varepsilon,\delta)$-DP conversion; pFedMe Moreau envelope personalization; MAML-Federated; pairwise masking secure aggregation; membership inference attack evaluation.}
+\cvitem{Module 10---ML for Science: Physics-Informed Neural Networks (PINNs) with autograd PDE residuals for heat and Burgers equations; E(3)-equivariant GNN (EGNN) for molecular property prediction; scVAE with negative binomial likelihood for single-cell RNA-seq; ComBat and Harmony batch correction; Bayesian optimization for materials discovery (EI/UCB/PI over GP surrogate); Fourier Neural Operator (FNO) for PDE solution operators; protein contact map prediction.}
+\cvitem{Shared infrastructure: YAML experiment configs, seed-controlled DGPs with oracle ground truth (PEHE, calibration error, graph SHD, equivariance residual), JSON result serialization, Markdown benchmark reports; ${\sim}$33{,}000 lines of Python source, ${\sim}$5{,}300 lines of tests, 310 pytest cases across 271 modules.}
 \cventryend
 
 \cvsection{Research Profile}
 
-Research-focused engineer investigating lunar volatile characterization, vacuum-materials behavior, AI-driven autonomous exploration, medical image classification, and agentic AI systems. Developed SpaAIder, an independent retrieval-augmented, plan-and-execute multi-agent runtime---heterogeneous clients stream intents over server-sent events to a hierarchical orchestrator performing context hydration, meta-LLM task decomposition with dependency-aware parallel subagent scheduling, critique--synthesis refinement, Ollama-first sovereign inference, tiered episodic--semantic--vector memory, and a Code-OSS IDE fork with editor-grounded context. At NASA Team 19 (\textit{Ad Astra}), conducted trade-study-driven research on PSR volatile prospecting at Nobile Rim 2---including thermal modeling across 40--394 K environments, science-to-requirements traceability, and subsystem trade analyses supporting in-situ volatile detection via LiDAR, spectrometry, and rotary-percussive sampling. At NASA Team 10, authored literature-backed technical research on vacuum cold-welding parameters (ASTROBEAT ISS heritage, NTRS sources, materials compatibility) and lead-authored L-MAP-FI, a multi-agent pathfinding and environmental forecasting research concept validated through ROS2/Gazebo simulation and FEA. Independently developed a chest X-ray pneumonia detection pipeline using EfficientNetV2B0 transfer learning with focal loss, class-balanced training, and test-time augmentation, achieving 83\% validation accuracy on 368 held-out radiographs. Research record spans agent orchestration, persistent memory systems, autonomous rover software, deep-learning experimentation, and formal peer review of competing NASA technology proposals.
+My central research question is how to build learning systems that remain reliable under distribution shift, sparse data, and deployment constraints---from observational causal inference and calibrated uncertainty quantification to autonomous robots operating in unstructured environments. I pursue this through two complementary threads: rigorous ML methodology (controlled benchmarks with known ground truth) and systems engineering (spacecraft, rovers, and agentic runtimes where failure has real cost). At NASA L'SPACE I translated science objectives into verifiable subsystem architectures; in parallel I built SpaAIder, a retrieval-augmented multi-agent runtime with tiered episodic--semantic--vector memory, and a ten-module ML research benchmark suite that studies estimator and policy failure modes rather than reporting best-case metrics alone.
+
+Independently architected a ten-module ML research benchmark suite spanning causal inference through scientific machine learning. Module 01 studies heterogeneous treatment effects and offline policy evaluation under confounding; Module 04 quantifies predictive uncertainty via variational Bayes, deep ensembles, and conformal prediction; Module 03 addresses offline and safe reinforcement learning under model epistemic error; Module 10 integrates physics-informed neural networks, equivariant molecular models, and neural operators for scientific computing. Each module implements production-quality research software: synthetic DGPs with oracle ground truth, YAML-configured experiment sweeps, pytest suites, and structured evaluation reports---the infrastructure required to systematically study when modern ML methods fail, not only when they succeed.
+
+In robotics, developed the full autonomy stack for USC's University Rover Challenge 2026 entry on ROS 2 (Humble): 7-target mission orchestrator, EKF-fused localization, GNSS waypoint navigation, ArUco visual servoing, and YOLO-based detection with behavior-tree integration. This systems engineering work complements spacecraft experience at NASA, where two consecutive L'SPACE assignments as sole Lead Systems Engineer produced formal reviews (MCR through PDR), subsystem ownership (CDH, thermal, ICD), and co-authorship on ten technical reports. I aim to continue this trajectory in graduate study at USC---connecting rigorous ML methodology with embodied autonomy and aerospace systems---where interdisciplinary faculty and hands-on robotics and propulsion programs provide the environment to pursue deployable, uncertainty-aware intelligent systems.
 
 \cvsection{Research Interests}
 
-Artificial intelligence and machine learning; inference models; retrieval-augmented generation; computer vision; medical image analysis and diagnostic machine learning; agentic AI and multi-agent orchestration; local LLM inference and transformer architectures; agentic AI with surrogate specializing models; optimization for accuracy and efficiency on orchestrator (router) LLMs in determining the single most accurate agent; autonomous mobile robotics and ROS 2 systems; spacecraft systems architecting; multi-body planetary surface mobility; autonomous roving platforms; subsystem-level interdependency modeling; fault-tolerant command and data handling for extra-terrestrial environments.
+\noindent\textbf{Primary research thrusts}\par\vspace{0.12em}
+\cvbullet{Trustworthy machine learning: heterogeneous treatment effect estimation, uncertainty quantification, calibration, and conformal prediction under distribution shift.}
+\cvbullet{Embodied AI and autonomous systems: ROS 2 autonomy, sensor fusion, visual servoing, and multi-agent orchestration for deployment-constrained environments.}
+
+\vspace{0.2em}
+\noindent\textbf{Machine Learning and AI}\par\vspace{0.08em}
+\cvbullet{Generative models (diffusion, flow matching, VAEs) for scientific applications; self-supervised and contrastive representation learning; graph neural networks and temporal relational learning; neurosymbolic reasoning and differentiable program synthesis; retrieval-augmented generation and agentic AI systems; local LLM inference and transformer architecture optimization.}
+
+\vspace{0.2em}
+\noindent\textbf{Robotics and Autonomy}\par\vspace{0.08em}
+\cvbullet{Autonomous mobile robotics and ROS 2 systems; EKF sensor fusion and state estimation; visual servoing and marker-based localization; behavior tree mission orchestration; multi-agent pathfinding and swarm coordination.}
+
+\vspace{0.2em}
+\noindent\textbf{Spacecraft and Planetary Science}\par\vspace{0.08em}
+\cvbullet{Spacecraft systems architecting and subsystem integration; lunar PSR volatile characterization; in-situ resource utilization; fault-tolerant command and data handling for extra-terrestrial environments; subsystem-level interdependency modeling.}
+
+\vspace{0.2em}
+\noindent\textbf{Privacy and Distributed ML}\par\vspace{0.08em}
+\cvbullet{Federated learning under data heterogeneity; differential privacy and the R\'enyi DP composition framework; secure aggregation protocols; personalized federated learning.}
+
+\vspace{0.2em}
+\noindent\textbf{Scientific ML}\par\vspace{0.08em}
+\cvbullet{Physics-informed neural networks; equivariant architectures for molecular and materials property prediction; neural operators for PDE solution; single-cell genomics and batch effect correction.}
 
 \cvsection{Research Publications and Technical Reports}
 
@@ -259,12 +363,14 @@ Artificial intelligence and machine learning; inference models; retrieval-augmen
 
 \cvsubhead{Personal Projects}
 
-\cvreportitem{\textbf{Terranova, J.} (2025--2026). SpaAIder: A local-first multi-agent runtime with persistent cross-session memory and heterogeneous clients (Personal project).}
+\cvreportitem[Lead architect and sole developer: designed TypeScript orchestration plane, Python FastAPI memory substrate, 135-agent taxonomy, AsyncEventQueue SSE multiplexer, and Code-OSS IDE fork.]{\textbf{Terranova, J.} (2025--Present). SpaAIder: A local-first multi-agent agentic runtime with tiered episodic-semantic-vector memory, dependency-aware parallel subagent scheduling, and heterogeneous client support (web, mobile, Electron, CLI, Code-OSS IDE) (Personal research software).}
 
-\cvreportitem{\textbf{Terranova, J.} (2026). EfficientNetV2-based chest X-ray pneumonia classification with focal loss, class balancing, and test-time augmentation (Personal project).}
+\cvreportitem[Sole developer: designed training pipeline achieving 83\% validation accuracy on 368-image held-out set with TTA and tuned threshold; exported model artifacts and structured evaluation reports.]{\textbf{Terranova, J.} (2025--2026). EfficientNetV2B0 transfer learning for chest radiograph pneumonia classification: focal loss, class-balanced oversampling, two-phase fine-tuning, and test-time augmentation (Personal project).}
 
-\cvreportitem{\textbf{Terranova, J.} (2026). LLM-V1.0: Small-scale transformer language model for local and Colab training (Personal project).}
+\cvreportitem[Sole developer: implemented full training pipeline including mixed-precision training, gradient accumulation, cosine LR schedule, checkpoint resumption, and streaming text generation.]{\textbf{Terranova, J.} (2025--2026). LLM-V1.0: A ${\sim}$30M-parameter GPT-style decoder-only transformer with BPE tokenization, AdamW optimization, and nucleus sampling for local and Colab training (Personal project).}
 
-\cvreportitem{\textbf{Terranova, J.} (2026). URC CV: University Rover Challenge autonomy software (USC Field Robotics Lab research software).}
+\cvreportitem[Software lead: 7-target mission orchestrator, EKF sensor fusion, GNSS waypoint navigation, ArUco visual servoing, YOLO detection pipeline, and judge telemetry dashboard.]{\textbf{Terranova, J.} (2026). URC-CV: ROS 2 autonomy software stack for University Rover Challenge 2026 including 7-target mission orchestrator, EKF sensor fusion, GNSS waypoint navigation, ArUco visual servoing, YOLO detection pipeline, and judge telemetry dashboard (USC Field Robotics Lab research software).}
+
+\cvreportitem[Sole architect: ten reproducible frameworks with synthetic ground-truth DGPs, YAML benchmark runners, and pytest evaluation harnesses across causal inference, adaptation, RL, uncertainty, generative modeling, graph ML, SSL, neurosymbolic reasoning, federated privacy, and scientific ML.]{\textbf{Terranova, J.} (2025--2026). ML Research Benchmark Suite: Ten reproducible research frameworks for causal inference, foundation-model adaptation, offline and safe reinforcement learning, probabilistic and Bayesian deep learning, scientific generative modeling, graph and temporal neural networks, self-supervised representation learning, neurosymbolic reasoning, federated and privacy-preserving ML, and scientific machine learning; ${\sim}$33{,}000 source lines, ${\sim}$5{,}300 test lines, 310 pytest cases (Personal research software).}
 
 \end{document}
