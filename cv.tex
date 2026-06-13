@@ -9,6 +9,7 @@
 \usepackage{array}
 \usepackage{tabularx}
 \usepackage{tocloft}
+\usepackage{multicol}
 \usepackage{fancyhdr}
 \usepackage[hidelinks]{hyperref}
 
@@ -24,7 +25,7 @@
   urlcolor=CVPrimary,
 }
 
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
 \setlength{\emergencystretch}{2em}
@@ -34,6 +35,12 @@
 \renewcommand{\cftsecpagefont}{\normalfont\color{CVMuted}}
 \renewcommand{\cftsecleader}{\color{CVRule}\cftdotfill{\cftdotsep}}
 \setlength{\cftbeforesecskip}{0.35em}
+\renewcommand{\cftsubsecfont}{\small\color{CVMuted}}
+\renewcommand{\cftsubsecpagefont}{\small\color{CVMuted}}
+\renewcommand{\cftsubsecleader}{\color{CVRule}\cftdotfill{\cftdotsep}}
+\setlength{\cftsubsecindent}{1.25em}
+\setlength{\cftsubsecnumwidth}{0pt}
+\setlength{\cftbeforesubsecskip}{0.12em}
 
 \fancypagestyle{cvstyle}{%
   \fancyhf{}%
@@ -106,7 +113,13 @@
 
 \newcommand{\cvsubhead}[1]{%
   \vspace{0.25em}%
+  \cvtocentry{#1}%
   \noindent\textit{\color{CVPrimary}#1}\par\vspace{0.12em}%
+}
+
+\newcommand{\cvtocentry}[1]{%
+  \phantomsection%
+  \addcontentsline{toc}{subsection}{#1}%
 }
 
 \newcounter{reportnum}
@@ -123,6 +136,7 @@
 }
 
 \newcommand{\cvskillgroup}[2]{%
+  \cvtocentry{#1}%
   \noindent\textbf{#1}\par
   \noindent\hspace{0.55em}{\color{CVPrimary}\textendash}\ #2\par\vspace{0.08em}%
 }
@@ -149,15 +163,19 @@
 
 \vspace{0.35em}
 \noindent{\bfseries\color{CVPrimary}\MakeUppercase{Table of Contents}}\par\vspace{0.25em}
+\begin{multicols}{2}
 \tableofcontents
+\end{multicols}
 
 \clearpage
 
 \cvsection{Education}
 
+\cvtocentry{B.Sc., Computer Science --- USC}
 \cvedu{B.Sc.\ in Computer Science}{\textsc{University of Southern California}, 2027}
 \cvcoursework{Data Structures and Object-Oriented Design, Introduction to Algorithms, Artificial Intelligence, Machine Learning, Computer Vision, Probability and Statistics for Electrical Engineering and Computer Science, Linear Algebra and Linear Differential Equations, Discrete Methods in Computer Science, Principles of Software Development, Introduction to Robotics}
 
+\cvtocentry{A.Sc., Mathematics --- LAMC}
 \cvedu{A.Sc.\ in Mathematics}{\textsc{Los Angeles Mission College}, 2025}
 \cvcoursework{Calculus I--III, Linear Algebra, Differential Equations, Probability and Statistics, Discrete Mathematics}
 
@@ -173,6 +191,7 @@
 
 \cvsection{Professional Experience}
 
+\cvtocentry{NASA Team 19: Ad Astra (LSE)}
 \cventry{Lead Systems Engineer / Research Lead, NASA Team 19: \textit{Ad Astra}}{National Aeronautics and Space Administration}{2026}
 \cvitem{Sole Lead Systems Engineer on 18-member MCA team (PM Alejandro Gonzalez, Chief Scientist Hannah Kim, DPMR Alfredo Guerra); led Engineering subteam integration with Science and Programmatic leads across MCR--PDR.}
 \cvitem{Authored spacecraft overview, subsystem summary table (mass/power/dimensions), and top-level subsystem requirements flow-down for a lunar PSR volatile-prospecting rover.}
@@ -185,6 +204,7 @@
 \cvitem{Coordinated Engineering subteam documentation for MCR--PDR milestone reviews; managed version control and cross-subsystem consistency across 19-interface ICD under PM review cadence.}
 \cventryend
 
+\cvtocentry{NASA Team 10: Forged in Orbit (LSE)}
 \cventry{Lead Systems Engineer / Research Lead, NASA Team 10: \textit{Forged in Orbit}}{National Aeronautics and Space Administration}{2025}
 \cvitem{Sole Lead Systems Engineer on 12-member NPWEE team (PI Joel Bhattarai, PM Alexis Gallardo, Chief Engineer Justin Schueler, Chief Scientist Riya Jain); integrated Engineering, Science, and Programmatic inputs for a \$10{,}000-class technology proposal.}
 \cvitem{Researched thermodynamic, mechanical, and materials behavior of vacuum-environment cold welding; derived quantitative KPPs from ASTROBEAT ISS heritage, NTRS literature, and materials compatibility analysis.}
@@ -202,6 +222,7 @@
 
 \cvsection{Additional Experience}
 
+\cvtocentry{USC Field Robotics Lab}
 \cventry{Software Engineer, USC Field Robotics Lab}{University of Southern California}{2026--Present}
 \cvitem{Developed full autonomy software stack for University Rover Challenge 2026 on ROS 2 (Humble); system integrated navigation, perception, manipulation, and science task modules.}
 \cvitem{Implemented 7-target mission orchestrator managing state machine transitions across autonomous navigation, object retrieval, equipment servicing, and science site analysis tasks.}
@@ -215,6 +236,7 @@
 \cvitem{Collaborated with 10+ team members across mechanical, electrical, and software subteams; maintained shared ROS 2 workspace, launch file architecture, and hardware abstraction layer.}
 \cventryend
 
+\cvtocentry{USC Rocket Propulsion Lab}
 \cventry{Software Engineer, USC Rocket Propulsion Lab}{University of Southern California}{2025--Present}
 \cvitem{Developed software systems supporting experimental liquid and hybrid propulsion research: sensor data acquisition, test sequence automation, and post-test data reduction pipelines.}
 \cvitem{Instrumentation software for pressure transducers, thermocouples, and load cells; real-time data logging with configurable sampling rates and alarm thresholds.}
@@ -223,6 +245,7 @@
 \cvitem{Design analysis support: propellant mass flow rate modeling, nozzle expansion ratio trade studies, and combustion chamber thermal margin estimation.}
 \cventryend
 
+\cvtocentry{USC Racing (Formula SAE)}
 \cventry{Software Engineer, USC Racing (Formula SAE)}{University of Southern California}{2025--2026}
 \cvitem{Developed embedded software and data acquisition systems for Formula SAE vehicle; sensor integration for suspension, brake, and powertrain telemetry.}
 \cvitem{Designed and implemented CAN bus data logging pipeline; parsed vehicle telemetry for real-time driver feedback display and post-session performance analysis.}
@@ -230,6 +253,7 @@
 \cvitem{Supported systems integration testing and on-track data collection during development and competition events.}
 \cventryend
 
+\cvtocentry{USC MESA}
 \cventry{Research Fellow, USC MESA}{University of Southern California}{2022--Present}
 \cvitem{Research mentor and STEM pathway advisor for underrepresented undergraduate students pursuing research readiness; conducted workshops on scientific communication, literature review, and research proposal writing.}
 \cvitem{Developed curriculum materials covering research methodology, academic writing conventions, and graduate school preparation strategies for STEM undergraduates.}
@@ -245,6 +269,7 @@
 
 \cvsection{Personal Projects}
 
+\cvtocentry{SpaAIder}
 \cvproject{SpaAIder (Local-First Agentic Runtime)}{2025--Present}
 \cvitem{Foundational split: TypeScript control plane (\texttt{runOrchestrator}) owns user-facing planning and delegation; Python FastAPI substrate owns persistence, memory APIs, and service routes; Ollama supplies sovereign on-device inference across orchestrator, subagent, and embedding models.}
 \cvitem{Memory substrate: \texttt{MemoryManager} delegates to contracted SQL tables (sessions, messages, knowledge, context, embeddings on SQLite/PostgreSQL) and an \texttt{EpisodicStore}; \texttt{/api/v1/memory/recall} fuses vector, episodic, and keyword channels before each plan.}
@@ -260,6 +285,7 @@
 \cvitem{Deployment targets: web (React), mobile (React Native), desktop (Electron), CLI (Node.js), and IDE extension; all share the TypeScript \texttt{runOrchestrator} and POST to the same \texttt{/api/agent/stream} endpoint.}
 \cventryend
 
+\cvtocentry{Pneumonia Detection (Chest X-Rays)}
 \cvproject{Pneumonia Detection from Chest X-Rays}{2025--2026}
 \cvitem{TensorFlow pipeline (\texttt{train.py}) for binary chest radiograph classification on 988 images (620 train / 368 validation).}
 \cvitem{EfficientNetV2B0 transfer learning with focal loss, class balancing, oversampling, and two-phase fine-tuning.}
@@ -271,6 +297,7 @@
 \cvitem{Evaluation suite: per-class precision/recall/F1, confusion matrix, ROC/AUC and precision--recall curves with average precision; threshold tuned on validation set to maximize F1 with test-time augmentation.}
 \cventryend
 
+\cvtocentry{LLM-V1.0}
 \cvproject{Small-Scale Language Model (LLM-V1.0)}{2025--2026}
 \cvitem{Designed and trained a ${\sim}$30M-parameter GPT-style transformer (8 layers, 8 heads, 512-dim embeddings, 8{,}192-token BPE vocabulary).}
 \cvitem{PyTorch training, checkpointing, and text-generation pipelines for Colab and local workflows.}
@@ -284,6 +311,7 @@
 \cvitem{Colab compatibility: optimized for T4/A100 free-tier constraints; automatic device detection (CUDA/MPS/CPU); fp16 auto-casting with fallback to fp32 for stability.}
 \cventryend
 
+\cvtocentry{ML Research Benchmark Suite}
 \cvproject{ML Research Benchmark Suite (10 modules)}{2025--2026}
 \cvitem{Designed and implemented ten independent reproducible research frameworks spanning the major subfields of modern machine learning; each module follows a shared architecture of synthetic ground-truth DGPs, YAML-configured benchmark runners, pytest suites, and structured JSON/Markdown evaluation reports.}
 \cvitem{Module 01---Causal ML for Decision-Making: five meta-learners (S/T/X/R/Causal Forest), doubly robust and TMLE estimators, NOTEARS linear and nonlinear DAG structure learning, PCMCI time-series causal discovery, IPS/SNIPS/DR off-policy evaluation, conformal CATE intervals, E-value sensitivity analysis; 47 source modules, 12 test files, 71 passing tests.}
@@ -309,27 +337,33 @@ In robotics, developed the full autonomy stack for USC's University Rover Challe
 
 \cvsection{Research Interests}
 
+\cvtocentry{Primary research thrusts}
 \noindent\textbf{Primary research thrusts}\par\vspace{0.12em}
 \cvbullet{Trustworthy machine learning: heterogeneous treatment effect estimation, uncertainty quantification, calibration, and conformal prediction under distribution shift.}
 \cvbullet{Embodied AI and autonomous systems: ROS 2 autonomy, sensor fusion, visual servoing, and multi-agent orchestration for deployment-constrained environments.}
 
 \vspace{0.2em}
+\cvtocentry{Machine Learning and AI}
 \noindent\textbf{Machine Learning and AI}\par\vspace{0.08em}
 \cvbullet{Generative models (diffusion, flow matching, VAEs) for scientific applications; self-supervised and contrastive representation learning; graph neural networks and temporal relational learning; neurosymbolic reasoning and differentiable program synthesis; retrieval-augmented generation and agentic AI systems; local LLM inference and transformer architecture optimization.}
 
 \vspace{0.2em}
+\cvtocentry{Robotics and Autonomy}
 \noindent\textbf{Robotics and Autonomy}\par\vspace{0.08em}
 \cvbullet{Autonomous mobile robotics and ROS 2 systems; EKF sensor fusion and state estimation; visual servoing and marker-based localization; behavior tree mission orchestration; multi-agent pathfinding and swarm coordination.}
 
 \vspace{0.2em}
+\cvtocentry{Spacecraft and Planetary Science}
 \noindent\textbf{Spacecraft and Planetary Science}\par\vspace{0.08em}
 \cvbullet{Spacecraft systems architecting and subsystem integration; lunar PSR volatile characterization; in-situ resource utilization; fault-tolerant command and data handling for extra-terrestrial environments; subsystem-level interdependency modeling.}
 
 \vspace{0.2em}
+\cvtocentry{Privacy and Distributed ML}
 \noindent\textbf{Privacy and Distributed ML}\par\vspace{0.08em}
 \cvbullet{Federated learning under data heterogeneity; differential privacy and the R\'enyi DP composition framework; secure aggregation protocols; personalized federated learning.}
 
 \vspace{0.2em}
+\cvtocentry{Scientific ML}
 \noindent\textbf{Scientific ML}\par\vspace{0.08em}
 \cvbullet{Physics-informed neural networks; equivariant architectures for molecular and materials property prediction; neural operators for PDE solution; single-cell genomics and batch effect correction.}
 
