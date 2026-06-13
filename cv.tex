@@ -151,11 +151,11 @@
     7748 Via Sorrento, Burbank, CA 91504\\[0.2em]
     (818) 515-9043 \textbar\
     \href{mailto:jjt_373@usc.edu}{jjt\_373@usc.edu}\\[0.2em]
-    \href{https://github.com/joshuaterranova}{github.com/joshuaterranova} \textbar\
-    \href{https://www.linkedin.com/in/joshua-terranova}{linkedin.com/in/joshua-terranova}%
+    \href{https://github.com/thatrandomasiandev}{github.com/thatrandomasiandev} \textbar\
+    \href{https://www.linkedin.com/in/jterranovacs}{linkedin.com/in/jterranovacs}%
   }\\[0.75em]
   {\large\color{CVAccent}\textsc{Curriculum Vitae}}\\[0.35em]
-  {\small\color{CVMuted} June 11, 2026}
+  {\small\color{CVMuted} June 12, 2026}
 \end{center}
 
 \vspace{0.15em}
@@ -210,7 +210,7 @@
 \cvitem{Researched thermodynamic, mechanical, and materials behavior of vacuum-environment cold welding; derived quantitative KPPs from ASTROBEAT ISS heritage, NTRS literature, and materials compatibility analysis.}
 \cvitem{Authored cold-welding performance specifications in team Technical Research Memorandum; co-authored final proposal and quad-chart concept portfolio (cold-weld reclamation, vacuum dust ejection, triboelectric transport).}
 \cvitem{Lead-authored L-MAP-FI: multi-agent lunar pathfinding and environmental forecasting framework (ROS2/Gazebo simulation, Fusion 360 FEA validation).}
-\cvitem{Designed vacuum-test research protocol for weld-parameter characterization; conducted formal peer review of competing NASA proposals (Teams 16--18) on Review Panel \#6.}
+\cvitem{Designed vacuum-test research protocol for weld-parameter characterization; developed alloy-specific vacuum-weld parameter matrix for austenitic stainless, aluminum, and copper alloy systems across $-183\,^{\circ}\mathrm{C}$ to $+137\,^{\circ}\mathrm{C}$ thermal envelope.}
 \cvitem{Developed quantitative KPPs for vacuum cold-welding system: minimum contact pressure 100 MPa, actuation force 10 kN, target shear strength $\geq$80 MPa, derived from ASTROBEAT ISS heritage data and NTRS archival literature.}
 \cvitem{Performed comparative cost and performance analysis across three ISRU technology concepts: cold-weld reclamation (94\% cost reduction vs.\ TIG welding), ultrasonic vacuum dust ejection (1.5 g/min removal rate), and triboelectric autonomous transport.}
 \cvitem{Evaluated technology readiness levels and NASA Technology Taxonomy alignment (TX4.3.3, TX4.6.1, TX12.4.1, TX12.4.6) for autonomous in-situ repair architectures.}
@@ -279,7 +279,7 @@
 \cvitem{Planning contract: meta-orchestrator LLM receives recalled \texttt{UserContext} and must emit JSON \texttt{TaskPlan} only (intent, agent assignments, \texttt{dependsOn} DAG edges over a 135-agent type taxonomy) without executing tasks---pure delegation.}
 \cvitem{Execution engine: dependency-aware parallel scheduler launches runnable tasks up to \texttt{maxParallelTasks}; domain subagents (code, filesystem, search, vision, memory, research, backend) run as async generators; \texttt{memory-agent} proxies read/write/recall to FastAPI; \texttt{AgentBus} provides in-process pub/sub and request--reply between agents.}
 \cvitem{Quality loop and surfaces: critique and synthesis agents post-process subagent artifacts into one response; completed turns persist through the memory layer; IDE fork reuses the same agent stream with editor-grounded file, selection, and terminal context.}
-\cvitem{Agent taxonomy and routing: 135-agent type taxonomy organized by domain (code, filesystem, search, vision, memory, research, backend); meta-orchestrator LLM selects agent assignments via structured JSON TaskPlan with \texttt{dependsOn} DAG edges---never executes tasks directly.}
+
 \cvitem{Persistence architecture: PostgreSQL production / SQLite development with versioned SQL schema migrations; sessions, messages, knowledge, context, and embeddings tables with foreign-key integrity; \texttt{EpisodicStore} backed by same schema.}
 \cvitem{IDE integration: Code-OSS fork with extension injecting active file path, text selection, and terminal stdout into the agent context window; same FastAPI backend serves both web client and IDE extension over identical SSE stream.}
 \cvitem{Deployment targets: web (React), mobile (React Native), desktop (Electron), CLI (Node.js), and IDE extension; all share the TypeScript \texttt{runOrchestrator} and POST to the same \texttt{/api/agent/stream} endpoint.}
@@ -327,13 +327,55 @@
 \cvitem{Shared infrastructure: YAML experiment configs, seed-controlled DGPs with oracle ground truth (PEHE, calibration error, graph SHD, equivariance residual), JSON result serialization, Markdown benchmark reports; ${\sim}$33{,}000 lines of Python source, ${\sim}$5{,}300 lines of tests, 310 pytest cases across 271 modules.}
 \cventryend
 
+\cvsection{Methodological Contributions}
+
+\cvtocentry{Key algorithmic implementations}
+\noindent\textbf{Key algorithmic implementations (research-grade, from scratch)}\par\vspace{0.12em}
+
+\cvbullet{NOTEARS nonlinear DAG structure learning (Module 01): augmented Lagrangian optimizer with matrix-exponential acyclicity constraint $h(W) = \mathrm{tr}(e^{W \odot W}) - d = 0$ and per-variable MLP structural equations; gradient $\nabla_W h = 2W \odot e^{W \odot W}$ derived analytically and verified against finite-difference Jacobian.}
+
+\cvbullet{TMLE targeted minimum loss-based estimation (Module 01): clever covariate $H(A,W) = A/\hat{e}(W) - (1-A)/(1-\hat{e}(W))$, epsilon fluctuation via logistic sub-model, one-step bias correction; doubly robust influence-function standard error with bootstrap overlap and E-value sensitivity.}
+
+\cvbullet{Mean-field variational inference BNN (Module 04): \texttt{BayesianLinear} with softplus reparameterization $\sigma = \log(1 + \exp(\rho))$, local reparameterization trick $w = \mu + \sigma \varepsilon$, and closed-form KL divergence $\sum_i [\log(\sigma_p/\sigma_q) + (\sigma_q^2 + \mu_q^2)/(2\sigma_p^2) - 1/2]$; ELBO loss with Monte Carlo likelihood averaging.}
+
+\cvbullet{DDPM + DDIM sampling with classifier-free guidance (Module 05): forward process $q(x_t|x_0) = \mathcal{N}(\sqrt{\bar\alpha_t}\,x_0,\,(1-\bar\alpha_t)I)$; DDIM deterministic reverse $x_{t-1} = \sqrt{\bar\alpha_{t-1}}\hat{x}_0 + \sqrt{1-\bar\alpha_{t-1}}\,\varepsilon_\theta$; guidance $\varepsilon_{\text{guided}} = \varepsilon_{\text{uncond}} + w(\varepsilon_{\text{cond}} - \varepsilon_{\text{uncond}})$ with configurable scale $w$.}
+
+\cvbullet{Multi-head Graph Attention Network and GIN (Module 06): per-head attention $e_{ij} = \mathrm{LeakyReLU}(a^T[Wh_i \| Wh_j])$ with masked softmax over adjacency support; stored attention weights $(K \times N \times N)$ for interpretability; GIN update $h_v^{(k)} = \mathrm{MLP}^{(k)}((1+\varepsilon^{(k)})h_v^{(k-1)} + \sum_{u \in \mathcal{N}(v)} h_u^{(k-1)})$ with learnable $\varepsilon$.}
+
+\cvbullet{DP-SGD with R\'enyi DP accounting (Module 09): per-sample gradient clipping via vmap, Gaussian noise at calibrated scale $\sigma$; RDP of Gaussian mechanism $\varepsilon_\alpha = \alpha/(2\sigma^2)$; composition and conversion to $(\varepsilon,\delta)$-DP via $\varepsilon(\delta) = \min_\alpha[\varepsilon_\alpha + \log(1-1/\alpha)/(\alpha-1) - \log(\delta)/(\alpha-1)]$.}
+
+\cvbullet{FedProx / pFedMe personalization (Module 09): FedProx local objective $F_i(w) + (\mu/2)\|w - w_{\text{global}}\|^2$; FedNova normalized update aggregation for heterogeneous local step counts; pFedMe Moreau envelope $w_i^* = \arg\min_w F_i(w) + (\lambda/2)\|w - \theta\|^2$.}
+
+\cvbullet{Physics-Informed Neural Networks (Module 10): autograd PDE residual $\mathcal{L}_{\text{PDE}} = \|\mathcal{N}[u_\theta](x,t)\|^2$ for heat equation $u_t = \alpha u_{xx}$ and Burgers equation $u_t + uu_x = \nu u_{xx}$; E(3)-equivariant message passing satisfying $f(Rx + t) = Rf(x)$ for SO(3) rotations $R$.}
+
+\vspace{0.4em}
+\cvtocentry{Unifying research question}
+\noindent\textbf{Unifying research question across the suite}\par\vspace{0.12em}
+\cvbullet{All ten modules share a common experimental protocol: synthetic data-generating processes with tunable assumption-violation parameters, oracle ground truth, and metrics that directly measure failure under those violations (PEHE for CATE estimators, SHD for graph recovery, ECE for calibration, equivariance residual for symmetry-constrained models). The overarching question is: \textit{how and at what rate do modern ML estimators degrade as their identifying assumptions are systematically violated?} This adversarial framing produces findings generalizable beyond individual architectures.}
+
+\cvsection{Service and Peer Review}
+
+\cvtocentry{Peer review and proposal evaluation}
+\noindent\textbf{Peer review and proposal evaluation}\par\vspace{0.12em}
+\cvbullet{Formal reviewer on NASA Review Panel \#6 (2025): independently evaluated complete technology proposals from Teams 16, 17, and 18 using NASA-structured scoring methodology covering technical merit, feasibility, and programmatic risk.}
+\cvbullet{Cross-team technical reviewer for Teams 19 and 10 internal milestone documents; provided written feedback on CDH requirements narratives, ICD completeness, and subsystem requirement traceability prior to formal NASA review.}
+\cvbullet{Open-source research software stewardship: ML Research Benchmark Suite released under structured module architecture with reproducibility guarantees (seed-controlled DGPs, pinned dependency environments, complete test suites); designed to lower the barrier for replication studies.}
+
+\cvtocentry{Mentorship and STEM outreach}
+\noindent\textbf{Mentorship and STEM outreach}\par\vspace{0.12em}
+\cvbullet{USC MESA Research Fellow (2022--Present): mentored cohorts of underrepresented undergraduates through research placement, graduate school preparation, and scientific communication; developed workshop curriculum and facilitated peer mentorship cohorts. (See Additional Experience for full details.)}
+
 \cvsection{Research Profile}
 
 My central research question is how to build learning systems that remain reliable under distribution shift, sparse data, and deployment constraints---from observational causal inference and calibrated uncertainty quantification to autonomous robots operating in unstructured environments. I pursue this through two complementary threads: rigorous ML methodology (controlled benchmarks with known ground truth) and systems engineering (spacecraft, rovers, and agentic runtimes where failure has real cost). At NASA L'SPACE I translated science objectives into verifiable subsystem architectures; in parallel I built SpaAIder, a retrieval-augmented multi-agent runtime with tiered episodic--semantic--vector memory, and a ten-module ML research benchmark suite that studies estimator and policy failure modes rather than reporting best-case metrics alone.
 
 Independently architected a ten-module ML research benchmark suite spanning causal inference through scientific machine learning. Module 01 studies heterogeneous treatment effects and offline policy evaluation under confounding; Module 04 quantifies predictive uncertainty via variational Bayes, deep ensembles, and conformal prediction; Module 03 addresses offline and safe reinforcement learning under model epistemic error; Module 10 integrates physics-informed neural networks, equivariant molecular models, and neural operators for scientific computing. Each module implements production-quality research software: synthetic DGPs with oracle ground truth, YAML-configured experiment sweeps, pytest suites, and structured evaluation reports---the infrastructure required to systematically study when modern ML methods fail, not only when they succeed.
 
-In robotics, developed the full autonomy stack for USC's University Rover Challenge 2026 entry on ROS 2 (Humble): 7-target mission orchestrator, EKF-fused localization, GNSS waypoint navigation, ArUco visual servoing, and YOLO-based detection with behavior-tree integration. This systems engineering work complements spacecraft experience at NASA, where two consecutive L'SPACE assignments as sole Lead Systems Engineer produced formal reviews (MCR through PDR), subsystem ownership (CDH, thermal, ICD), and co-authorship on ten technical reports. I aim to continue this trajectory in graduate study at USC---connecting rigorous ML methodology with embodied autonomy and aerospace systems---where interdisciplinary faculty and hands-on robotics and propulsion programs provide the environment to pursue deployable, uncertainty-aware intelligent systems.
+In robotics, developed the full autonomy stack for USC's University Rover Challenge 2026 entry on ROS 2 (Humble): 7-target mission orchestrator, EKF-fused localization, GNSS waypoint navigation, ArUco visual servoing, and YOLO-based detection with behavior-tree integration. This systems engineering work complements spacecraft experience at NASA, where two consecutive L'SPACE assignments as sole Lead Systems Engineer produced formal reviews (MCR through PDR), subsystem ownership (CDH, thermal, ICD), and co-authorship on twelve technical reports.
+
+The methodological thread across all projects is a commitment to measuring what fails rather than what succeeds. In causal inference this means evaluating CATE estimators under violations of overlap and unconfoundedness, not just on benign DGPs. In Bayesian deep learning it means measuring calibration degradation as dataset shift increases, not just reporting ECE on in-distribution data. In federated learning it means quantifying privacy--utility tradeoffs as a function of noise multiplier and clipping threshold under heterogeneous data partitions. This failure-mode orientation shapes both what I build and how I evaluate it, and it reflects a research philosophy I intend to carry into graduate study: rigorous empirical methodology demands adversarial evaluation, not optimistic reporting.
+
+I aim to continue this trajectory in doctoral study---connecting rigorous ML methodology with embodied autonomy and aerospace systems---where interdisciplinary programs can bridge the gap between theoretical guarantees and deployment-constrained systems. My goal is to produce research that is simultaneously mathematically precise, empirically rigorous, and grounded in the failure modes that matter in practice: distribution shift, model misspecification, privacy constraints, and physical symmetry requirements. The ten-module benchmark suite represents a working prototype of this research methodology at undergraduate scale; doctoral study would allow me to pursue these questions at the depth required to produce publishable theoretical and empirical contributions.
 
 \cvsection{Research Interests}
 
@@ -343,9 +385,19 @@ In robotics, developed the full autonomy stack for USC's University Rover Challe
 \cvbullet{Embodied AI and autonomous systems: ROS 2 autonomy, sensor fusion, visual servoing, and multi-agent orchestration for deployment-constrained environments.}
 
 \vspace{0.2em}
+\cvtocentry{Causal Inference and Decision Theory}
+\noindent\textbf{Causal Inference and Decision Theory}\par\vspace{0.08em}
+\cvbullet{Heterogeneous treatment effect estimation under unmeasured confounding; doubly robust and semiparametric efficient estimators; CATE sensitivity analysis (E-values, Rosenbaum bounds); off-policy evaluation and counterfactual policy optimization; structural causal models and interventional distributions; time-series causal discovery (PCMCI, Granger, VAR); causal representation learning and identifiability theory.}
+
+\vspace{0.2em}
 \cvtocentry{Machine Learning and AI}
 \noindent\textbf{Machine Learning and AI}\par\vspace{0.08em}
 \cvbullet{Generative models (diffusion, flow matching, VAEs) for scientific applications; self-supervised and contrastive representation learning; graph neural networks and temporal relational learning; neurosymbolic reasoning and differentiable program synthesis; retrieval-augmented generation and agentic AI systems; local LLM inference and transformer architecture optimization.}
+
+\vspace{0.2em}
+\cvtocentry{Uncertainty Quantification and Reliable ML}
+\noindent\textbf{Uncertainty Quantification and Reliable ML}\par\vspace{0.08em}
+\cvbullet{Bayesian deep learning (variational inference, MC Dropout, deep ensembles); conformal prediction and distribution-free coverage guarantees; calibration theory and recalibration methods; selective prediction and risk-coverage tradeoffs; epistemic vs.\ aleatoric uncertainty decomposition; out-of-distribution detection; uncertainty-aware decision making under deployment constraints.}
 
 \vspace{0.2em}
 \cvtocentry{Robotics and Autonomy}
@@ -360,12 +412,12 @@ In robotics, developed the full autonomy stack for USC's University Rover Challe
 \vspace{0.2em}
 \cvtocentry{Privacy and Distributed ML}
 \noindent\textbf{Privacy and Distributed ML}\par\vspace{0.08em}
-\cvbullet{Federated learning under data heterogeneity; differential privacy and the R\'enyi DP composition framework; secure aggregation protocols; personalized federated learning.}
+\cvbullet{Federated learning under data heterogeneity; differential privacy and the R\'enyi DP composition framework; secure aggregation protocols; personalized federated learning; membership inference attack evaluation; privacy--utility tradeoff characterization under varying noise multiplier and clipping threshold.}
 
 \vspace{0.2em}
 \cvtocentry{Scientific ML}
 \noindent\textbf{Scientific ML}\par\vspace{0.08em}
-\cvbullet{Physics-informed neural networks; equivariant architectures for molecular and materials property prediction; neural operators for PDE solution; single-cell genomics and batch effect correction.}
+\cvbullet{Physics-informed neural networks; equivariant architectures for molecular and materials property prediction; neural operators for PDE solution; single-cell genomics and batch effect correction; Bayesian optimization over GP surrogates for materials discovery; symmetry-constrained learning and physical law enforcement via loss design.}
 
 \cvsection{Research Publications and Technical Reports}
 
@@ -379,6 +431,10 @@ In robotics, developed the full autonomy stack for USC's University Rover Challe
 \cvreportitem[Lead Systems Engineer contribution: authored spacecraft overview, subsystem summary table (mass/power/dimensions), 19-interface ICD matrix, N\textsuperscript{2} diagram, and interface narrative; co-led thermal heat-flow analysis and CDH/thermal trade studies for 40--394 K PSR operating environments.]{Gonzalez, A., Guerra, A., Chang, A., Dixon, D., Zhou, E., Senteza, J., Mendez, J., Kumar, K., Richmond, R., \textbf{Terranova, J.}, Kim, H., French, S., Noor, M., Saad, S., Durkin, J., Raihan, F., Gutierrez, N., \& Saxena, H., System requirements baseline, subsystem allocation framework, and interface control architecture for a lunar PSR exploration rover (System Requirements Review, Team 19), National Aeronautics and Space Administration (NASA), 2026.}
 
 \cvreportitem[Lead Systems Engineer contribution: co-authored alternative mission concept comparison with Chief Scientist Hannah Kim; developed conceptual architecture integrating LiDAR navigation, rotary-percussive regolith sampling, and onboard spectrometric volatile analysis for PSR reconnaissance.]{Gonzalez, A., Guerra, A., Chang, A., Dixon, D., Zhou, E., Senteza, J., Mendez, J., Kumar, K., Richmond, R., \textbf{Terranova, J.}, Kim, H., French, S., Noor, M., Saad, S., Durkin, J., Raihan, F., Gutierrez, N., \& Saxena, H., Conceptual elaboration of an autonomous lunar volatile-reconnaissance architecture for permanently shadowed region prospecting (Mission Concept Review, Team 19), National Aeronautics and Space Administration (NASA), 2026.}
+
+\cvreportitem[Lead Systems Engineer contribution: authored CDH interface specification documenting all command and telemetry interfaces between the CDH subsystem and payload instruments, power subsystem, communications transponder, and mobility electronics; established message formats, timing constraints, and fault-response interface contracts for PDR.]{Gonzalez, A., Guerra, A., Chang, A., Dixon, D., Zhou, E., Senteza, J., Mendez, J., Kumar, K., Richmond, R., \textbf{Terranova, J.}, Kim, H., French, S., Noor, M., Saad, S., Durkin, J., Raihan, F., Gutierrez, N., \& Saxena, H., Command and data handling subsystem interface specification: message protocols, timing constraints, and fault-response contracts for a lunar volatile-prospecting rover (CDH Interface Document, Team 19), National Aeronautics and Space Administration (NASA), 2026.}
+
+\cvreportitem[Lead Systems Engineer contribution: co-authored thermal subsystem analysis establishing heat-flow maps for PSR orbital and surface phases; performed comparative trade study of multi-layer insulation vs.\ active heating architectures for 40--394 K operational envelope; linked thermal KPPs to CDH safe-mode entry thresholds.]{Gonzalez, A., Guerra, A., Chang, A., Dixon, D., Zhou, E., Senteza, J., Mendez, J., Kumar, K., Richmond, R., \textbf{Terranova, J.}, Kim, H., French, S., Noor, M., Saad, S., Durkin, J., Raihan, F., Gutierrez, N., \& Saxena, H., Thermal subsystem requirements, heat-flow analysis, and MLI vs.\ active-heating trade study for a permanently shadowed region rover (Thermal Subsystem Report, Team 19), National Aeronautics and Space Administration (NASA), 2026.}
 
 \cvsubhead{National Aeronautics and Space Administration (NASA), Team 10, 2025}
 \noindent{\small\color{CVMuted}\textit{12-member L'SPACE NPWEE team. Lead Systems Engineer / Research Lead (sole LSE). PI Joel Bhattarai; PM Alexis Gallardo; Chief Engineer Justin Schueler; Chief Scientist Riya Jain.}}\par\vspace{0.12em}
@@ -399,6 +455,8 @@ In robotics, developed the full autonomy stack for USC's University Rover Challe
 
 \cvreportitem[Lead architect and sole developer: designed TypeScript orchestration plane, Python FastAPI memory substrate, 135-agent taxonomy, AsyncEventQueue SSE multiplexer, and Code-OSS IDE fork.]{\textbf{Terranova, J.} (2025--Present). SpaAIder: A local-first multi-agent agentic runtime with tiered episodic-semantic-vector memory, dependency-aware parallel subagent scheduling, and heterogeneous client support (web, mobile, Electron, CLI, Code-OSS IDE) (Personal research software).}
 
+\cvreportitem[Sole developer: formal architecture specification documenting TypeScript/Python split-plane design, 135-agent taxonomy, AsyncEventQueue SSE protocol, EpisodicStore consolidation algorithm, ContextEngine token-budget allocation, and PostgreSQL/SQLite schema.]{\textbf{Terranova, J.} (2025--Present). SpaAIder System Architecture Specification: orchestration plane, memory substrate, agent taxonomy, and multi-client SSE protocol for a local-first agentic runtime (Technical design document, personal research software).}
+
 \cvreportitem[Sole developer: designed training pipeline achieving 83\% validation accuracy on 368-image held-out set with TTA and tuned threshold; exported model artifacts and structured evaluation reports.]{\textbf{Terranova, J.} (2025--2026). EfficientNetV2B0 transfer learning for chest radiograph pneumonia classification: focal loss, class-balanced oversampling, two-phase fine-tuning, and test-time augmentation (Personal project).}
 
 \cvreportitem[Sole developer: implemented full training pipeline including mixed-precision training, gradient accumulation, cosine LR schedule, checkpoint resumption, and streaming text generation.]{\textbf{Terranova, J.} (2025--2026). LLM-V1.0: A ${\sim}$30M-parameter GPT-style decoder-only transformer with BPE tokenization, AdamW optimization, and nucleus sampling for local and Colab training (Personal project).}
@@ -406,5 +464,11 @@ In robotics, developed the full autonomy stack for USC's University Rover Challe
 \cvreportitem[Software lead: 7-target mission orchestrator, EKF sensor fusion, GNSS waypoint navigation, ArUco visual servoing, YOLO detection pipeline, and judge telemetry dashboard.]{\textbf{Terranova, J.} (2026). URC-CV: ROS 2 autonomy software stack for University Rover Challenge 2026 including 7-target mission orchestrator, EKF sensor fusion, GNSS waypoint navigation, ArUco visual servoing, YOLO detection pipeline, and judge telemetry dashboard (USC Field Robotics Lab research software).}
 
 \cvreportitem[Sole architect: ten reproducible frameworks with synthetic ground-truth DGPs, YAML benchmark runners, and pytest evaluation harnesses across causal inference, adaptation, RL, uncertainty, generative modeling, graph ML, SSL, neurosymbolic reasoning, federated privacy, and scientific ML.]{\textbf{Terranova, J.} (2025--2026). ML Research Benchmark Suite: Ten reproducible research frameworks for causal inference, foundation-model adaptation, offline and safe reinforcement learning, probabilistic and Bayesian deep learning, scientific generative modeling, graph and temporal neural networks, self-supervised representation learning, neurosymbolic reasoning, federated and privacy-preserving ML, and scientific machine learning; ${\sim}$33{,}000 source lines, ${\sim}$5{,}300 test lines, 310 pytest cases (Personal research software).}
+
+\cvreportitem[Module 01 technical memo: from-scratch implementations of NOTEARS linear and nonlinear structure learning (matrix-exponential acyclicity constraint), PCMCI time-series causal discovery, five meta-learners (S/T/X/R/Causal Forest), TMLE targeted learning, IPS/SNIPS/DR off-policy evaluation, and E-value sensitivity analysis; 71 passing pytest cases.]{\textbf{Terranova, J.} (2025--2026). Causal ML for decision-making: meta-learners, doubly robust estimators, NOTEARS structure learning, PCMCI, and off-policy evaluation under synthetic confounding (Module 01 Technical Report, ML Research Benchmark Suite).}
+
+\cvreportitem[Module 04 technical memo: mean-field variational inference BNN with closed-form KL divergence, MC Dropout, deep ensembles, temperature and vector scaling calibration, split conformal prediction with RAPS, and reliability diagrams; systematic calibration degradation study under dataset shift.]{\textbf{Terranova, J.} (2025--2026). Probabilistic and Bayesian deep learning: variational inference, conformal prediction, and calibration under distribution shift (Module 04 Technical Report, ML Research Benchmark Suite).}
+
+\cvreportitem[Module 09 technical memo: DP-SGD per-sample gradient clipping with vmap, Gaussian noise injection, R\'enyi DP accounting, FedAvg/FedProx/FedNova/FedBN, pFedMe Moreau envelope personalization, MAML-Federated, pairwise masking secure aggregation, and membership inference attack evaluation.]{\textbf{Terranova, J.} (2025--2026). Federated and privacy-preserving ML: DP-SGD, R\'enyi differential privacy accounting, FedProx, and personalized federated learning under heterogeneous data partitions (Module 09 Technical Report, ML Research Benchmark Suite).}
 
 \end{document}
