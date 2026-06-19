@@ -224,7 +224,7 @@
 
 \cvtocentry{USC Field Robotics Lab}
 \cventry{Software Engineer, USC Field Robotics Lab}{University of Southern California}{2026--Present}
-\cvitem{Developed full autonomy software stack for University Rover Challenge 2026 on ROS 2 (Humble); system integrated navigation, perception, manipulation, and science task modules.}
+\cvitem{Developed full autonomy software stack for University Rover Challenge 2026 on ROS 2 (Humble); system integrated navigation, perception, manipulation, and science task modules (\textbf{URC-CV}; see \textit{USC Field Robotics Lab} technical reports).}
 \cvitem{Implemented 7-target mission orchestrator managing state machine transitions across autonomous navigation, object retrieval, equipment servicing, and science site analysis tasks.}
 \cvitem{GNSS waypoint navigation pipeline with coordinate-frame transforms (WGS-84 to local ENU), dead-reckoning fallback, and dynamic obstacle replanning via Nav2 costmaps.}
 \cvitem{ArUco marker visual servoing for precision docking: camera intrinsic calibration, pose estimation via solvePnP, and proportional velocity controller with convergence tolerance.}
@@ -233,6 +233,7 @@
 \cvitem{E-stop interlock system with hardware and software layers; watchdog timers, heartbeat monitoring, and safe-state recovery procedures per URC safety requirements.}
 \cvitem{Judge telemetry web dashboard: real-time ROS 2 topic visualization, rover state display, GPS track overlay, and task completion logging served over WebSocket.}
 \cvitem{System integration testing on outdoor terrain; characterized localization drift, detection false-positive rates, and navigation replanning latency under competition conditions.}
+\cvitem{Authored mathematical architecture specification for URC-CV: formal models for flat-earth and haversine GPS verification, ArUco IPPE pose and multi-frame gating, visual servo PID, EKF sensor fusion, priority-based twist multiplexing, and e-stop safety lattice aligned to URC 2026 rules.}
 \cvitem{Collaborated with 10+ team members across mechanical, electrical, and software subteams; maintained shared ROS 2 workspace, launch file architecture, and hardware abstraction layer.}
 \cventryend
 
@@ -451,6 +452,12 @@ I aim to continue this trajectory in doctoral study---connecting rigorous ML met
 
 \cvreportitem[Lead Systems Engineer: conducted formal peer evaluation of competing NASA technology proposals (Teams 16--18) using NASA-structured scoring methodology on Review Panel \#6.]{\textbf{Terranova, J.}, Formal peer evaluation of competing NASA technology proposals via NASA-structured scoring methodology (Review Panel \#6, 2025). Evaluated proposals from Teams 16, 17, and 18.}
 
+\cvsubhead{USC Field Robotics Lab}
+
+\cvreportitem[Software lead: 7-target mission orchestrator, EKF sensor fusion, GNSS waypoint navigation, ArUco visual servoing, YOLO detection pipeline, and judge telemetry dashboard; 10+ ROS 2 packages with integration tests.]{\textbf{Terranova, J.} (2026). URC-CV: ROS 2 autonomy software stack for University Rover Challenge 2026 including 7-target mission orchestrator, EKF sensor fusion, GNSS waypoint navigation, ArUco visual servoing, YOLO detection pipeline, and judge telemetry dashboard (USC Field Robotics Lab research software).}
+
+\cvreportitem[Sole author: 1{,}000+ line technical report deriving stack design from URC 2026 constraints---haversine GNSS success with multi-frame confirmation ($K_{\text{gnss}}=5$), ArUco IPPE bearing/distance with $F=3$ frame gating, visual servo PID and piecewise speed profile, YOLO class-wise confirmation, \texttt{robot\_localization} EKF fusion, twist\_mux priority selection, and e-stop Boolean lattice; includes parameter tables and orchestrator pseudocode.]{\textbf{Terranova, J.} (2026). URC-CV: A mathematical architecture specification for University Rover Challenge 2026 autonomous navigation (Technical architecture report, USC Field Robotics Lab research software).}
+
 \cvsubhead{Personal Projects}
 
 \cvreportitem[Lead architect and sole developer: designed TypeScript orchestration plane, Python FastAPI memory substrate, 135-agent taxonomy, AsyncEventQueue SSE multiplexer, and Code-OSS IDE fork.]{\textbf{Terranova, J.} (2025--Present). SpaAIder: A local-first multi-agent agentic runtime with tiered episodic-semantic-vector memory, dependency-aware parallel subagent scheduling, and heterogeneous client support (web, mobile, Electron, CLI, Code-OSS IDE) (Personal research software).}
@@ -460,8 +467,6 @@ I aim to continue this trajectory in doctoral study---connecting rigorous ML met
 \cvreportitem[Sole developer: designed training pipeline achieving 83\% validation accuracy on 368-image held-out set with TTA and tuned threshold; exported model artifacts and structured evaluation reports.]{\textbf{Terranova, J.} (2025--2026). EfficientNetV2B0 transfer learning for chest radiograph pneumonia classification: focal loss, class-balanced oversampling, two-phase fine-tuning, and test-time augmentation (Personal project).}
 
 \cvreportitem[Sole developer: implemented full training pipeline including mixed-precision training, gradient accumulation, cosine LR schedule, checkpoint resumption, and streaming text generation.]{\textbf{Terranova, J.} (2025--2026). LLM-V1.0: A ${\sim}$30M-parameter GPT-style decoder-only transformer with BPE tokenization, AdamW optimization, and nucleus sampling for local and Colab training (Personal project).}
-
-\cvreportitem[Software lead: 7-target mission orchestrator, EKF sensor fusion, GNSS waypoint navigation, ArUco visual servoing, YOLO detection pipeline, and judge telemetry dashboard.]{\textbf{Terranova, J.} (2026). URC-CV: ROS 2 autonomy software stack for University Rover Challenge 2026 including 7-target mission orchestrator, EKF sensor fusion, GNSS waypoint navigation, ArUco visual servoing, YOLO detection pipeline, and judge telemetry dashboard (USC Field Robotics Lab research software).}
 
 \cvreportitem[Sole architect: ten reproducible frameworks with synthetic ground-truth DGPs, YAML benchmark runners, and pytest evaluation harnesses across causal inference, adaptation, RL, uncertainty, generative modeling, graph ML, SSL, neurosymbolic reasoning, federated privacy, and scientific ML.]{\textbf{Terranova, J.} (2025--2026). ML Research Benchmark Suite: Ten reproducible research frameworks for causal inference, foundation-model adaptation, offline and safe reinforcement learning, probabilistic and Bayesian deep learning, scientific generative modeling, graph and temporal neural networks, self-supervised representation learning, neurosymbolic reasoning, federated and privacy-preserving ML, and scientific machine learning; ${\sim}$33{,}000 source lines, ${\sim}$5{,}300 test lines, 310 pytest cases (Personal research software).}
 
